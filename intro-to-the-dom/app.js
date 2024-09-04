@@ -23,3 +23,4 @@ h3Element.textContent = "I love life";
 
 const bodyElement = document.querySelector("body");
 bodyElement.appendChild(h3Element);
+
