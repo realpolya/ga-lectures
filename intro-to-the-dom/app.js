@@ -47,4 +47,18 @@ if (buttonElement.hasAttribute("disabled")) {
 buttonElement.id = "submit";
 buttonElement.setAttribute("class", "banana"); // use for non-standard attribute
 
+// add extra class
+buttonElement.classList.add("wonder");
+buttonElement.classList.remove("banana");
+buttonElement.classList.toggle("banana");
+if (buttonElement.classList.contains("banana")) {
+    console.log("banana is here");
+}
+buttonElement.classList.replace("banana", "apple");
 
+// after / before etc
+buttonElement.before(titleElement);
+
+//
+const itemEls = Array.from(commentElements);
+console.log(itemEls);
