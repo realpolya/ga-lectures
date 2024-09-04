@@ -20,3 +20,6 @@ paragraphElement.style.color = "coral";
 // creating elements
 const h3Element = document.createElement("h3");
 h3Element.textContent = "I love life";
+
+const bodyElement = document.querySelector("body");
+bodyElement.appendChild(h3Element);
