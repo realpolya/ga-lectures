@@ -24,3 +24,27 @@ h3Element.textContent = "I love life";
 const bodyElement = document.querySelector("body");
 bodyElement.appendChild(h3Element);
 
+
+// choosing ALL elements
+const commentElements = document.querySelectorAll("li");
+
+console.log(commentElements)
+
+commentElements.forEach((comment) => {
+    console.log(comment.textContent);
+    comment.style.fontSize = "30px";
+})
+
+// getting attributes
+const buttonElement = document.querySelector("button");
+
+if (buttonElement.hasAttribute("disabled")) {
+    console.log("Button is disabled");
+    buttonElement.removeAttribute("disabled"); // remove the key of the attribute
+}
+
+// setAttribute
+buttonElement.id = "submit";
+buttonElement.setAttribute("class", "banana"); // use for non-standard attribute
+
+
