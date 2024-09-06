@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+} /* applicable to the entire webpage */
+
+/* 
+border-box
+- option that automatically adjusts to the chosen width
+- i get to choose the width
+
+
+content-box
+- default option
+- does width + padding (so its slightly larger than requested)
+
+*/
+html {
+    font-size: 20px; /* default is 16 px */
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+h1 {
+    text-align: center;
+    font-family: "Nerko One", cursive;
+    font-style: normal;
+    font-size: 3rem;
+}
+
+.top-level-list {
+    box-sizing: border-box;
+}
+
+.nerko {
+    font-family: "Nerko One", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.montserrat{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+/* attribute */
+input[type="number"] {
+    background-color: blueviolet;
+}
+
+/* 
+pseudo-classes:
+
+:active - Targets elements in their active state, such as clicked links.
+:disabled - Targets disabled form elements like input fields.
+:empty - Targets elements with no children or text content.
+:first-child - Targets the first child element of a parent.
+:nth-child - Targets elements based on their position within a parent.
+:nth-of-type - Targets elements of a specific type based on their position within a parent.
+:focus - Targets elements being focused on by a user, like when an input field is selected.
+:hover - Targets elements when the mouse cursor hovers over them.
+
+p::first-letter - Style the first letter of all <p> elements.
+p::first-line - Style the first line of all <p> elements.
+::selection - Style the part of an element selected by the user.
+.special::before - Add content before all elements with a class of .special.
+.special::after - Add content after all elements with a class of .special.
+
+*/
+
+::selection {
+    color: hotpink;
+    background-color: yellow;
+}
+
+/* 
+child selector (ONLY direct children!):
+
+.top-level-list > li {
+  border: solid 1px orange;
+}
+
+adjacent sibling selector:
+only if they were preceded by another div
+
+div + div {
+  color: green;
+}
+
+*/
+
+li + li {
+    color: green;
+}
+
+/* 
+general sibling selector
+selects all instances of the second element 
+that appear after the first element at the same level
+
+input ~ input {
+    border: 1px solid red;
+}
+
+*/
+
+
+/*
+units
+
+em: Ems are based on the font size of the parent element. 
+2em is twice the font size of the parent element. 
+If the font size of the parent is 12px, then 2em is 24px.
+
+rem: Rems are similar to ems, but they are based on the 
+font size of the root element. 
+rem should be the most used! set html to pixels, 
+the rest to ems, rems
+
+%: Percentages are based on the size of the container element, 
+and as a result are always relative to the size of that element.
+
+vw - 1% of the viewport’s width.
+vh - 1% of the viewport’s height.
+
+*/
