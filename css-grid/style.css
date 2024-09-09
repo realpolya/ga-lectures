@@ -9,6 +9,14 @@ body {
     min-height: 100dvh; /* vh stands for viewport height */
     font-size: 2rem;
     color: teal;
+
+    /* another grid map solution ( . represents a blank space)
+
+    grid-template-areas: 
+        "nav nav nav"
+        "aside main main"
+        "footer footer footer";  */
+
     margin: 0; /* browsers often set defaults for margins */
     padding: 0;
 }
@@ -16,22 +24,57 @@ body {
 nav {
     grid-column: span 2; /* spanning 2 columns now */
     height: 4rem;
+    /* grid-area: nav; */
 }
 
 aside {
     background-color: aliceblue;
+    /* grid-area: aside; */
 }
 
 main {
     background-color: thistle;
+    /* grid-area: main; */
 }
 
 footer {
     background-color: lemonchiffon;
     grid-column: 1 / 3; /* start / end with grid lines */
+    height: 3rem;
+    /* grid-area: footer; */
 }
 
 a {
     color: hotpink;
 }
 
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/*
+.grid-container {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    grid-gap: 1rem;
+} */
+ 
+/* media query for smaller screens */
+@media (max-width: 500px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        background-color: yellow;
+    }
+    
+    aside {
+        background-color: greenyellow;
+    }
+}
