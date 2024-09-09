@@ -33,6 +33,6 @@ class Car {
     }
 }
 
-const myCar = new Car();
+const myCar = new Car('Ford', 'Bronco');
 
 console.log(myCar);
