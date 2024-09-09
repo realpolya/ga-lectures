@@ -1,0 +1,45 @@
+body {
+    background-color: gray;
+    font-family: sans-serif;
+    margin: 0;
+  }
+  
+  .flex-parent {
+    background-color: black;
+    display: flex; /* horizontal arrangement is the default of flexbox */
+    height: 40rem;
+    justify-content: space-evenly; /* this property helps distribute children in space */
+    align-items: center;
+    flex-direction: column-reverse; /* row is the default. you can do column, row-reverse */
+    margin: auto;
+  }
+  
+  .flex-child {
+    font-size: 48px;
+    height: 10rem;
+    width: 6rem;
+    display: flex;
+    justify-content: center; /* aligning things inside of the child (nesting flexboxes) */
+    align-items: center;
+  }
+  
+  #one {
+    background-color: #f0f0f0;
+    color: #707070;
+  }
+  
+  #two {
+    background-color: #d0d0d0;
+    color: #505050;
+  }
+  
+  #three {
+    background-color: #b0b0b0;
+    color: #303030;
+  }
+  
+  #four {
+    background-color: #909090;
+    color: #101010;
+  }
+  
