@@ -1,0 +1,19 @@
+body {
+    background-color: lightgray;
+    margin: 0px;
+    font-family: system-ui, sans-serif;
+    display: flex;
+  }
+
+  #btn {
+    background-color: #EFEFEF;
+    color: #9E005C;
+    font-size: 20px;
+    padding: 8px 16px;
+    margin: 2rem;
+  }
+
+  img {
+    max-width: 30rem;
+    margin: 2rem;
+  }
