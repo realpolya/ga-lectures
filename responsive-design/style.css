@@ -4,3 +4,57 @@ body {
     font-family: system-ui, sans-serif;
   }
   
+/* mobile */  
+@media (max-width: 480px) and (min-width: 320px) {
+    body {
+        background-color: hotpink;
+    }
+}
+
+/* tablet */
+@media (max-width: 767px) and (min-width: 481px) {
+    body {
+        background-color: yellowgreen;
+    }
+}
+
+/* desktop */
+@media (max-width: 1199px) and (min-width: 768px) {
+    body {
+        background-color: lemonchiffon;
+    }
+}
+
+/* large desktop */
+@media (min-width: 1200px) {
+    body {
+        background-color: yellow;
+    }
+}
+
+nav {
+    font-size: 18px;
+    padding: 0 16px;
+}
+
+#destinations {
+    display: none;
+}
+
+@media (min-width: 600px) {
+    #destinations {
+      display: flex;
+      gap: 16px;
+    }
+  
+    #destinations-mobile {
+      display: none;
+    }
+  }
+
+/* 
+Mobile: 320px - 480px
+Tablet: 481px - 767px
+Desktop: 768px - 1199px
+Large desktop: 1200px+
+*/
