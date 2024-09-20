@@ -1,0 +1,15 @@
+{
+  "name": "something-else",
+  "version": "1.0.0",
+  "description": "Package made by Polina!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Polina",
+  "license": "ISC",
+  "dependencies": {
+    "validator": "^13.12.0"
+  }
+}
