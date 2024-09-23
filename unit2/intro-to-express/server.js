@@ -48,7 +48,9 @@ app.get("/home", (req, res) => {
 })
 
 app.get("/:item/:name", (req, res) => {
-    res.send(`<h1 style="color: mediumseagreen; font-size: 3rem; text-decoration: underline; margin: auto; text-align: center;">Number is ${req.params.item}</h1><br><h2>Hello, ${req.params.name}</h2>`)
+    res.send(`<h1 style="color: mediumseagreen; font-size: 3rem; 
+        text-decoration: underline; margin: auto; text-align: center;">
+        Number is ${req.params.item}</h1><br><h2>Hello, ${req.params.name}</h2>`)
 
     console.log(req.params);
 })
