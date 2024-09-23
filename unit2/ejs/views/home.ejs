@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>We are rendering an EJS page!</h1>
+    
+    <% let name = "Rob"; 
+    let showMessage = true; 
+    let favoriteNumber = 7; %>
+
+    <% if(showMessage) { %>
+
+        <p>This shows up</p>
+
+    <% } else { %>
+
+        <p>Something else</p>
+
+    <% } %>
+
+    <p>7 + 13 = <%= 7 + 13 %></p>
+    <p>Welcome here, <%= name %></p>
+    <p>Your favorite number is <%= favoriteNumber %></p>
+    <br>
+
+    <p> <%= msg %> </p>
+    <p> <%= players.nameTwo %> </p>
+
+    <ul>
+        <% inventory.forEach((item) => { %>
+            <li> <%= item.name %>: <%= item.qty %> </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
