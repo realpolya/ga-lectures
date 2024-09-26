@@ -2,6 +2,10 @@ import dotenv from "dotenv";
 dotenv.config();
 import express from "express";
 import mongoose from "mongoose";
+//import { Fruit } from "./models/fruit.js";
+import Fruit from "./models/fruit.js" // default export
+
+console.log(Fruit);
 
 const app = express();
 
