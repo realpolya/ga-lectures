@@ -1,0 +1,47 @@
+body {
+    background-color: aliceblue;
+}
+
+h1 {
+    color: purple;
+    margin: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: pink;
+    width: 40%;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 1rem;
+}
+
+input, textarea {
+    width: 90%;
+    margin: .2rem;
+}
+
+.one-input {
+    margin: 0 1rem;
+    background-color: aliceblue;
+    padding: .5rem;
+    border-radius: 1rem;
+}
+
+button {
+    width: 30%;
+    height: 2rem;
+    margin: 1rem auto;
+    color: purple;
+    font-size: 1.3rem;
+}
+
+button:hover {
+    background-color: purple;
+    color: white;
+}
+
+label {
+    color: purple;
+}

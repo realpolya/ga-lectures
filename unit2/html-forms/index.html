@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Forms</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <h1>Contact Form</h1>
+    <form action="/the-form-submits-here" method="POST">
+
+        <div class="one-input">
+            <label for="banana">Name</label> <!--for tag matches the input tag's id-->
+            <input id="banana" required type="text" placeholder="Type here"/>
+        </div>
+
+        <div class="one-input">
+            <label for="email">Email</label>
+            <input id="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required type="email" placeholder="Email here" />
+        </div>
+
+        <div class="one-input">
+            <label for="password">Password</label>
+            <input id="password" required type="password" placeholder="Password here">
+        </div>
+
+
+        <div class="one-input">
+            <label for="love">Favorite movie</label>
+            <textarea id="love">Movie</textarea>
+        </div>
+
+        <div class="one-input">
+            <label for="category">I'm contacting about:</label>
+            <select id="category" required>
+              <option value="work">A job opportunity</option>
+              <option value="question">A question</option>
+              <option value="misc">Miscellaneous</option>
+            </select>
+        </div>
+
+        <button type="submit">Submit</button>
+        
+    </form>
+
+</body>
+</html>
