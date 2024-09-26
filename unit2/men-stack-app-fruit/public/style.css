@@ -12,8 +12,32 @@ h1 {
 
 }
 
+.main-list {
+    color: white;
+    background-color: cadetblue;
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+li {
+    padding: .2rem;
+}
+
 form {
     margin: 2rem;
     display: flex;
     flex-direction: column;
+}
+
+button {
+    height: 5rem;
+    width: 80%;
+    background-color: pink;
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
 }

@@ -35,12 +35,18 @@ app.get("/", async (req, res) => {
     res.render("index");
 });
 
+app.get("/fruits", async (req, res) => {
+    const allFruits = await Fruit.find();
+    console.log(allFruits);
+    res.render("fruits/list", { allFruits })    
+})
+
 app.get("/fruits/new", (req, res) => {
     res.render("fruits/new");
 })
 
 app.post("/fruits", async (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     if(req.body.ripe === "on") {
         req.body.ripe = true;
     } else {
@@ -49,6 +55,6 @@ app.post("/fruits", async (req, res) => {
 
     await Fruit.create(req.body);
 
-    res.redirect("fruits/new");
-})
+    res.redirect("fruits");
+});
 
