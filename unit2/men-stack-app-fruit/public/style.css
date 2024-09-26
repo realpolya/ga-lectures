@@ -1,0 +1,19 @@
+body {
+    background-color: aliceblue;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: hotpink;
+    margin: 1rem auto;
+
+}
+
+form {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+}

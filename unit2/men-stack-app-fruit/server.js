@@ -3,11 +3,20 @@ dotenv.config();
 import express from "express";
 import mongoose from "mongoose";
 //import { Fruit } from "./models/fruit.js";
-import Fruit from "./models/fruit.js" // default export
+import Fruit from "./models/fruit.js"; // default export
 
-console.log(Fruit);
 
+
+// initialize express
 const app = express();
+
+app.use(express.urlencoded({ extended: false }));
+
+// host CSS file
+app.use(express.static('public'));
+
+// use ejs
+app.set('view engine', 'ejs');
 
 // connect to mongoDB fruits collection
 mongoose.connect(process.env.MONGODB_URI);
@@ -21,8 +30,25 @@ app.listen(3000, () => {
     console.log("Listening at 3000");
 });
 
+// get fruits/new
 app.get("/", async (req, res) => {
-    res.render("index.ejs");
+    res.render("index");
 });
 
+app.get("/fruits/new", (req, res) => {
+    res.render("fruits/new");
+})
+
+app.post("/fruits", async (req, res) => {
+    console.log(req.body);
+    if(req.body.ripe === "on") {
+        req.body.ripe = true;
+    } else {
+        req.body.ripe = false;
+    }
+
+    await Fruit.create(req.body);
+
+    res.redirect("fruits/new");
+})
 
