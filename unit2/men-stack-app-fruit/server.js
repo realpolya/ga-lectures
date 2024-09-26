@@ -59,3 +59,12 @@ app.post("/fruits", async (req, res) => {
     res.redirect("fruits");
 });
 
+app.get("/fruits/:item", async (req, res) => {
+
+    // find the necessary fruit
+    const id = req.params.item; 
+    const fruitItem = await Fruit.findById(id);
+
+    res.render("fruits/item", { fruitItem })    
+
+})

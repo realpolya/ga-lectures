@@ -8,7 +8,8 @@ body {
 
 h1 {
     color: hotpink;
-    margin: 1rem auto;
+    margin: 1rem auto 2rem auto;
+
 
 }
 
@@ -53,4 +54,16 @@ a:hover {
 button:hover {
     background-color: hotpink;
     color: white;
+}
+
+.ripe {
+    font-size: 1.3rem;
+    background-color: teal;
+    padding: 1rem;
+    border-radius: 2rem;
+    color: white;
+}
+
+span {
+    color: teal;
 }

@@ -14,11 +14,8 @@
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.21.0",
-    "fs": "^0.0.1-security",
     "mongoose": "^8.6.3",
-    "path": "^0.12.7",
-    "serve-favicon": "^2.5.0",
-    "url": "^0.11.4"
+    "serve-favicon": "^2.5.0"
   },
   "type": "module"
 }

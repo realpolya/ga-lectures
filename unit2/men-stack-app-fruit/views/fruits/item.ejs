@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <!-- <link href="../favi.png" rel="icon" type="image/png"> -->
+
+    <title><%= fruitItem.name %></title>
+</head>
+<body>
+    <h1>Welcome to the <span><%= fruitItem.name %></span> page!</h1>
+    <div class="ripe">
+        <p>Is it ripe?</p>
+        <% if (fruitItem.ripe) { %>
+            <p>Yes!!!</p>
+        <% } else { %>
+            <p>Nope.</p>
+        <% } %>
+    </div>
+
+    <div id="buttons">
+        <form action="/fruits/new" method="GET">
+            <button type="submit">Create a new fruit</button>
+        </form>
+
+        <form action="/fruits" method="GET">
+            <button type="submit">View List</button>
+        </form>
+    
+        <form action="/" method="GET">
+            <button type="submit">Go home</button>
+        </form>
+    </div>
+
+</body>
+</html>
