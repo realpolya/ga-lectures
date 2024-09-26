@@ -4,16 +4,17 @@ import express from "express";
 import mongoose from "mongoose";
 //import { Fruit } from "./models/fruit.js";
 import Fruit from "./models/fruit.js"; // default export
-
-
+import favicon from "serve-favicon";
 
 // initialize express
 const app = express();
 
-app.use(express.urlencoded({ extended: false }));
 
 // host CSS file
+app.use(favicon('public/favi.png'));
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: false }));
+
 
 // use ejs
 app.set('view engine', 'ejs');

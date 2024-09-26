@@ -41,3 +41,16 @@ button {
     display: flex;
     flex-direction: row;
 }
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: pink;
+}
+
+button:hover {
+    background-color: hotpink;
+    color: white;
+}
