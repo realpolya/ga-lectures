@@ -13,8 +13,8 @@ const PORT = process.env.PORT ? process.env.PORT : "3000"; // ternary statement
 
 mongoose.connect(process.env.MONGODB_URI)
 mongoose.connection.on("connected", () => {
-    console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
-  });
+  console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
+});
 
 // middleware
 // first allows to parse URL-encoded data from forms
@@ -23,6 +23,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 app.use(morgan('dev'));
 
+// use ejs
+app.set('view engine', 'ejs');
+
 app.listen(PORT, () => {
-    console.log(`The express app is ready on port ${PORT}!`);
+  console.log(`The express app is ready on port ${PORT}!`);
+})
+
+app.get("/", (req, res) => {
+  res.render("index");
 })
