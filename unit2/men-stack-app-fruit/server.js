@@ -42,7 +42,7 @@ app.get("/", async (req, res) => {
 app.get("/fruits", async (req, res) => {
     const allFruits = await Fruit.find();
     console.log(allFruits);
-    res.render("fruits/list", { allFruits })    
+    res.render("fruits/list", { allFruits, fruitItem: false })    
 })
 
 app.get("/fruits/new", (req, res) => {
