@@ -25,22 +25,25 @@ li {
 }
 
 form {
-    margin: 2rem;
+    margin: 1rem;
     display: flex;
     flex-direction: column;
 }
 
 button {
     height: 5rem;
-    width: 80%;
+    width: 100%;
     background-color: pink;
     border-radius: 1rem;
-    margin: 1rem;
+    margin: 1rem 0;
 }
 
 #buttons {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
 }
 
 a {
@@ -66,4 +69,14 @@ button:hover {
 
 span {
     color: teal;
+}
+
+#delete-button {
+    background-color: black;
+    color: pink;
+}
+
+#delete-button:hover {
+    background-color: hotpink;
+    color: white;
 }

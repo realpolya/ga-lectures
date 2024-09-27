@@ -5,16 +5,18 @@ import mongoose from "mongoose";
 //import { Fruit } from "./models/fruit.js";
 import Fruit from "./models/fruit.js"; // default export
 import favicon from "serve-favicon";
+import morgan from "morgan";
+import methodOverride from "method-override";
 
 // initialize express
 const app = express();
-
 
 // host CSS file
 app.use(favicon('public/favi.png'));
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
-
+app.use(methodOverride("_method"));
+app.use(morgan("dev"));
 
 // use ejs
 app.set('view engine', 'ejs');
@@ -26,6 +28,7 @@ mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on("connected", () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 })
+
 
 app.listen(3000, () => {
     console.log("Listening at 3000");
@@ -47,7 +50,7 @@ app.get("/fruits/new", (req, res) => {
 })
 
 app.post("/fruits", async (req, res) => {
-    // console.log(req.body);
+    
     if(req.body.ripe === "on") {
         req.body.ripe = true;
     } else {
@@ -56,7 +59,9 @@ app.post("/fruits", async (req, res) => {
 
     await Fruit.create(req.body);
 
-    res.redirect("fruits");
+    const allFruits = await Fruit.find();
+    res.render("fruits/list", { allFruits, fruitItem: false });
+
 });
 
 app.get("/fruits/:item", async (req, res) => {
@@ -66,5 +71,44 @@ app.get("/fruits/:item", async (req, res) => {
     const fruitItem = await Fruit.findById(id);
 
     res.render("fruits/item", { fruitItem })    
+
+})
+
+// delete fruit item
+app.delete("/fruits/:item", async (req, res) => {
+    
+    // find the necessary fruit
+    const id = req.params.item; 
+    const fruitItem = await Fruit.findByIdAndDelete(id);
+
+    const allFruits = await Fruit.find();
+    res.render("fruits/list", { allFruits, fruitItem });
+
+})
+
+// edit the fruit page
+app.get("/fruits/:item/edit", async (req, res) => {
+    
+    // find the necessary fruit
+    const id = req.params.item; 
+    const fruitItem = await Fruit.findById(id);
+    res.render("fruits/edit", { fruitItem });
+
+
+})
+
+app.put("/fruits/:item", async (req, res) => {
+    
+    // find the necessary fruit
+    const id = req.params.item; 
+
+    if(req.body.ripe === "on") {
+        req.body.ripe = true;
+    } else {
+        req.body.ripe = false;
+    }
+
+    const fruitItem = await Fruit.findByIdAndUpdate(id, req.body);
+    res.redirect(`/fruits/${id}`)
 
 })

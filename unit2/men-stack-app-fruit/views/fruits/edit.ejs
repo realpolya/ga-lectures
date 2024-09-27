@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit <%= fruitItem.name %></title>
+    <link rel="stylesheet" href="/style.css">
+    <!-- <link href="../favi.png" rel="icon" type="image/png"> -->
+</head>
+<body>
+
+    <h1>Edit <span><%= fruitItem.name %></span></h1>
+
+    <div class="ripe">
+        <h4>Current Information</h4>
+        <p>Is it ripe?
+            <% if (fruitItem.ripe) { %>
+                Yes!!!
+            <% } else { %>
+                Nope.
+            <% } %>
+        </p>
+    </div>
+
+    <form action="/fruits/<%=fruitItem._id%>?_method=PUT" method="POST">
+        <label for="name">New name:</label>
+        <input type="text" name="name" id="name" value="<%= fruitItem.name %>"/>
+    
+        <label for="isReadyToEat">Has it ripened?</label>
+        <input type="checkbox" name="ripe" id="ripe" 
+        <% if (fruitItem.ripe) { %> 
+            checked
+        <% } %>
+        />
+    
+        <button type="submit">Update <%= fruitItem.name %></button>
+    </form>
+    
+
+    <div id="buttons">
+
+        <form action="/fruits" method="GET">
+            <button type="submit">View List</button>
+        </form>
+    
+        <form action="/" method="GET">
+            <button type="submit">Go home</button>
+        </form>
+
+        <form action="/fruits/<%= fruitItem._id %>?_method=DELETE" 
+            method="POST">
+            <button id="delete-button" type="submit">Delete <%= fruitItem.name %></button>
+        </form>
+
+    </div>
+    
+    
+</body>
+</html>
