@@ -11,9 +11,11 @@ import methodOverride from "method-override";
 // initialize express
 const app = express();
 
-// host CSS file
+// host CSS file and icon
 app.use(favicon('public/favi.png'));
 app.use(express.static('public'));
+
+
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 app.use(morgan("dev"));
