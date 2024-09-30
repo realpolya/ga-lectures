@@ -9,5 +9,9 @@ const subtaskSchema = new mongoose.Schema({
 export default mongoose.model("Todo", new mongoose.Schema({
     text: String,
     isComplete: Boolean,
-    subtasks: [subtaskSchema] // embedded schema
+    subtasks: [subtaskSchema], // embedded schema
+    assignee: { 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'User' // Reference to the User model
+    }
 }))
