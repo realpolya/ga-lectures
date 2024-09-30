@@ -59,9 +59,21 @@ router.post("/sign-in", async (req, res) => {
     if (!checkPass) {
         return res.send("Login failed. Please try again.")
     }
-    
-    // render the new page TODO:
-    res.send(`You logged in, ${findUser.username}!`)
+
+    // create an object for the user
+    req.session.user = { 
+        username: findUser.username,
+        _id: findUser._id
+    };
+    //console.log(session);
+
+    res.redirect("/");
+
+})
+
+router.get("/sign-out", (req, res) => {
+    req.session.destroy();
+    res.redirect("/");
 })
 
 

@@ -6,6 +6,7 @@ import methodOverride from "method-override";
 import morgan from "morgan";
 import User from "./models/user.js";
 import authController from "./controllers/auth.js";
+import session from "express-session";
 
 // initialize express
 const app = express();
@@ -21,14 +22,22 @@ mongoose.connection.on("connected", () => {
 
 // middleware
 const middleware = () => {
+  
   app.use(express.static('public')); // CSS file
   // first allows to parse URL-encoded data from forms
   app.use(express.urlencoded({ extended: false }));
   app.use(methodOverride("_method"));
   app.use(morgan('dev'));
 
+  app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+  }))
+
   // routes to authenticate
   app.use("/auth", authController);
+
 }
 middleware();
 
@@ -40,5 +49,7 @@ app.listen(PORT, () => {
 })
 
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", {
+    user: req.session.user,
+  });
 })
