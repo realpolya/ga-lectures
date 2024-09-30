@@ -65,15 +65,18 @@ router.post("/sign-in", async (req, res) => {
         username: findUser.username,
         _id: findUser._id
     };
-    //console.log(session);
-
-    res.redirect("/");
+    
+    // asynchronous callback
+    req.session.save(() => {
+        res.redirect("/");
+    });
 
 })
 
 router.get("/sign-out", (req, res) => {
-    req.session.destroy();
-    res.redirect("/");
+    req.session.destroy(() => {
+        res.redirect("/");
+    });
 })
 
 

@@ -7,6 +7,7 @@ import morgan from "morgan";
 import User from "./models/user.js";
 import authController from "./controllers/auth.js";
 import session from "express-session";
+// import MongoStore from "mongo-connect"; creates an issue
 
 // initialize express
 const app = express();
@@ -33,6 +34,9 @@ const middleware = () => {
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
+    // store: MongoStore.create({
+    //   mongoUrl: process.env.MONGO_URI,
+    // })
   }))
 
   // routes to authenticate
@@ -52,4 +56,12 @@ app.get("/", (req, res) => {
   res.render("index", {
     user: req.session.user,
   });
+});
+
+app.get("/vip-lounge", (req, res) => {
+  if (req.session.user) {
+    res.send(`Welcome to the party ${req.session.user.username}`);
+  } else {
+    res.send("Sorry, no guests allowed")
+  }
 })

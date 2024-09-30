@@ -37,3 +37,7 @@ button {
     justify-content: space-evenly;
     width: 80%;
 }
+
+a {
+    color: darkgreen;
+}
