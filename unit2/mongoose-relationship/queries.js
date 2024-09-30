@@ -32,9 +32,33 @@ const findTodos = async () => {
   console.log("All todos:", todos);
 };
 
+const createSubtask = async () => {
+    // Assume that the todo we want to create a
+    // sub-task for has the following id:
+    const todoId = "66fae704b30344e14b3fb7fe";
+
+    // Look up the todo by id, assign the returned object to `todo`
+    const todo = await Todo.findById(todoId);
+    console.log(todo)
+  
+    const subtaskData = {
+      text: "Learn how props work",
+      isComplete: false,
+    };
+  
+    // Push the new sub-task data into the subtasks array on the todo:
+    todo.subtasks.push(subtaskData);
+
+    // Save the parent document:
+    await todo.save();
+    console.log("Modified todo:", todo);
+  };
+  
+
 /*------------------------------- Run Queries -------------------------------*/
 
 const runQueries = async () => {
   console.log('Queries running.');
-  await createTodo();
+    // await createTodo();
+    // await createSubtask();
 };
