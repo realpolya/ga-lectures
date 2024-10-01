@@ -7,6 +7,9 @@ import methodOverride from 'method-override';
 import morgan from 'morgan';
 import session from 'express-session';
 
+import { isSignedIn } from "./middleware/is-signed-in.js";
+import { userToView } from './middleware/user-view.js';
+
 import authController from './controllers/auth.js';
 
 const port = process.env.PORT ? process.env.PORT : '3000';
@@ -28,6 +31,7 @@ app.use(
     saveUninitialized: true,
   })
 );
+app.use(userToView);
 
 app.get('/', (req, res) => {
   res.render('index.ejs', {
@@ -36,6 +40,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', authController);
+app.use(isSignedIn);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
