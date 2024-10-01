@@ -1,5 +1,7 @@
 body {
-    background-color: midnightblue;
+    /* background-color: midnightblue; */
+    background: rgb(63,94,251);
+background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
     margin: 5rem;
     color: pink;
     font-size: 1.1rem;
