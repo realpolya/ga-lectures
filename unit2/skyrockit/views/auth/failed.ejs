@@ -8,21 +8,21 @@
   <title>Failed</title>
 </head>
 <body>
-  <%- include('../partials/_navbar.ejs') %>
-  <% if (signIn) { %>
-    <h1>Login failed. Please try again.</h1>
-  <% } else if (username) { %>
-    <h1>Username already taken.</h1>
-  <% } else { %>
-    <h1>Password and Confirm Password must match.</h1>
-  <% } %>
-  <div id="buttons">
-    <form action="/auth/sign-in" method="GET">
-        <button type="submit">Sign In</button>
-    </form>
-    <form action="/auth/sign-up" method="GET">
-        <button type="submit">Sign Up</button>
-    </form>
-</div>
+    <%- include('../partials/_navbar.ejs') %>
+    <% if (signIn) { %>
+        <h1>Login failed. Please try again.</h1>
+    <% } else if (username) { %>
+        <h1>Username already taken.</h1>
+    <% } else { %>
+        <h1>Password and Confirm Password must match.</h1>
+    <% } %>
+    <div id="buttons">
+        <form action="/auth/sign-in" method="GET">
+            <button type="submit">Sign In</button>
+        </form>
+        <form action="/auth/sign-up" method="GET">
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
 </body>
 </html>
