@@ -32,12 +32,19 @@ app.use(
     saveUninitialized: true,
   })
 );
+
+// checking if user exists or it its null
 app.use(userToView);
 
 app.get('/', (req, res) => {
-  res.render('index.ejs', {
-    user: req.session.user,
-  });
+  if (req.session.user) {
+    res.redirect(`/users/${req.session.user._id}/applications`);
+  } else {
+    res.render('index.ejs');
+  }
+  // res.render('index.ejs', {
+  //   user: req.session.user,
+  // });
 });
 
 app.use('/auth', authController);
