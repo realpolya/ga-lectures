@@ -4,43 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <title><%= application.title %> App</title>
+    <title>Edit <%= application.title %> App</title>
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1><%= application.title %> App</h1>
-    <div id="app-table">
-        <table>
-            <tr>
-                <td class="td-head">Title</td>
-                <td><%= application.title %></td>
-            </tr>
-            <tr>
-                <td class="td-head">Company</td>
-                <td><%= application.company %></td>
-            </tr>
-            <tr>
-                <td class="td-head">Notes</td>
-                <td><%= application.notes %></td>
-            </tr>
-            <tr>
-                <td class="td-head">Link</td>
-                <td><%= application.postingLink %></td>
-            </tr>
-            <tr>
-                <td class="td-head">Status</td>
-                <td><%= application.status %></td>
-            </tr>
-        </table>
-    </div>
+    <h1>Edit <%= application.title %> App</h1>
+
+    <form action="/users/<%= user._id %>/applications/<%= application._id %>?_method=PUT" method="POST">
+
+        <div>
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" value="<%= application.title %>" />
+        </div>
+
+        <div>
+            <label for="company">Company:</label>
+            <input type="text" name="company" id="company" value="<%= application.company %>" />
+        </div>
+
+        <div>
+            <label for="notes">Notes:</label>
+            <textarea type="text" name="notes" id="notes" value="<%= application.notes %>"><%= application.notes %></textarea>
+        </div>
+
+        <div>
+            <label for="postingLink">Posting link:</label>
+            <input type="text" name="postingLink" id="postingLink" value="<%= application.postingLink %>" />
+        </div>
+
+        <div>
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+                <option value="interested" 
+                    <%= application.status === 'interested' ? 'selected' : '' %>
+                >Interested</option>
+                <option value="applied" 
+                    <%= application.status === 'interested' ? 'selected' : '' %>
+                >Applied</option>
+                <option value="interviewing" 
+                    <%= application.status === 'interested' ? 'selected' : '' %>
+                >Interviewing</option>
+                <option value="rejected" 
+                    <%= application.status === 'interested' ? 'selected' : '' %>
+                >Rejected</option>
+                <option value="accepted" 
+                    <%= application.status === 'interested' ? 'selected' : '' %>
+                >Accepted</option>
+            </select>
+        </div>
+
+        <div><button type="submit">Edit <%= application.title %> App</button></div>
+    </form> 
 
     <div id="buttons">
-        <form action="/users/<%= user._id %>/applications/<%= application._id %>/edit" method="GET">
-            <button type="submit">Edit <%= application.title %> app</button>
-        </form>
-        <form action="/users/<%= user._id %>/applications/<%= application._id %>" method="GET">
-            <button type="submit">Delete <%= application.title %> app</button>
+        <form action="/users/<%= user._id %>/applications" method="GET">
+            <button type="submit">View applications</button>
         </form>
     </div>
+    
 </body>
 </html>

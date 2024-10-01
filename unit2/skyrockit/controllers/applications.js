@@ -97,7 +97,7 @@ router.delete(("/:appId"), async (req, res) => {
 
 })
 
-// page for updating the app
+// GET page for updating the app
 router.get("/:appId/edit", async (req, res) => {
     
     try {
@@ -109,6 +109,34 @@ router.get("/:appId/edit", async (req, res) => {
 
         // render the show view
         res.render('applications/edit.ejs', { application });
+
+    } catch(err) {
+        
+        console.log(err);
+        res.redirect('/');
+
+    }
+
+});
+
+// POST page for updating the app
+router.put("/:appId", async (req, res) => {
+    
+    try {
+        // look up the user 
+        const user = await User.findById(req.session.user._id);
+
+        // look up the application
+        const application = user.applications.id(req.params.appId);
+
+        // update the application
+        application.set(req.body)
+
+        // save the user's json
+        await user.save();
+
+        // render the show view
+        res.render('applications/show.ejs', { application });
 
     } catch(err) {
         
