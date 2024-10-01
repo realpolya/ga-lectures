@@ -11,6 +11,10 @@ router.get('/', (req, res) => {
     } catch (err) {
         console.error(err);
     }
-})
+});
+
+router.get('/new', (req, res) => {
+    res.render('applications/new.ejs');
+});
 
 export default router;
