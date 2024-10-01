@@ -24,8 +24,7 @@ router.post('/sign-up', async (req, res) => {
     if (userInDatabase) {
       return res.send('Username already taken.');
     }
-  
-    // Username is not taken already!
+
     // Check if the password and confirm password match
     if (req.body.password !== req.body.confirmPassword) {
       return res.send('Password and Confirm Password must match');
@@ -36,14 +35,14 @@ router.post('/sign-up', async (req, res) => {
     req.body.password = hashedPassword;
   
     // All ready to create the new user!
-    // await create(req.body);
-    const user = await User.create(req.body);
-    console.log(user);
+    await User.create(req.body);
   
     res.redirect('/auth/sign-in');
   } catch (error) {
+    
     console.log(error);
     res.redirect('/');
+
   }
 });
 
@@ -73,6 +72,7 @@ router.post('/sign-in', async (req, res) => {
     };
   
     res.redirect('/');
+    
   } catch (error) {
     console.log(error);
     res.redirect('/');
