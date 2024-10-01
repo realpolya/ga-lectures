@@ -10,7 +10,7 @@
     <%- include('../partials/_navbar.ejs') %>
     <h1>Add a new app</h1>
 
-    <form action="" method="POST">
+    <form action="/users/<%= user._id %>/applications" method="POST">
 
         <div>
             <label for="company">Company:</label>

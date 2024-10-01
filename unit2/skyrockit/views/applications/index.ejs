@@ -9,5 +9,25 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Your Apps</h1>
+    <div id="app-table">
+        <table>
+            <tr>
+                <td class="td-head">Company</td>
+                <td class="td-head">Title</td>
+                <td class="td-head">Notes</td>
+                <td class="td-head">Link</td>
+                <td class="td-head">Status</td>
+            </tr>
+            <% applications.forEach((application) => { %>
+                <tr>
+                    <td><%= application.company %></td>
+                    <td><%= application.title %></td>
+                    <td><%= application.notes %></td>
+                    <td><%= application.postingLink %></td>
+                    <td><%= application.status %></td>
+                </tr>
+            <% }) %>
+        </table>
+    </div>
 </body>
 </html>

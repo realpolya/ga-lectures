@@ -57,3 +57,16 @@ nav {
     display: flex;
     flex-direction: column;
 }
+
+table, tr, td {
+    border: 1px solid pink;
+}
+
+td {
+    padding: 0.5rem;
+}
+
+.td-head {
+    background-color: lightskyblue;
+    color: midnightblue;
+}
