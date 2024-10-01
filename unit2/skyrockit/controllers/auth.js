@@ -1,8 +1,8 @@
-const express = require('express');
-const router = express.Router();
-const bcrypt = require('bcrypt');
+import { Router } from 'express';
+const router = Router();
+import { hashSync, compareSync } from 'bcrypt';
 
-const User = require('../models/user.js');
+import User from '../models/user.js';
 
 router.get('/sign-up', (req, res) => {
   res.render('auth/sign-up.ejs');
@@ -32,11 +32,13 @@ router.post('/sign-up', async (req, res) => {
     }
   
     // Must hash the password before sending to the database
-    const hashedPassword = bcrypt.hashSync(req.body.password, 10);
+    const hashedPassword = hashSync(req.body.password, 10);
     req.body.password = hashedPassword;
   
     // All ready to create the new user!
-    await User.create(req.body);
+    // await create(req.body);
+    const user = await User.create(req.body);
+    console.log(user);
   
     res.redirect('/auth/sign-in');
   } catch (error) {
@@ -54,7 +56,7 @@ router.post('/sign-in', async (req, res) => {
     }
   
     // There is a user! Time to test their password with bcrypt
-    const validPassword = bcrypt.compareSync(
+    const validPassword = compareSync(
       req.body.password,
       userInDatabase.password
     );
@@ -77,4 +79,4 @@ router.post('/sign-in', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

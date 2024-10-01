@@ -1,13 +1,13 @@
-const dotenv = require('dotenv');
-dotenv.config();
-const express = require('express');
+import { config } from 'dotenv';
+config();
+import express, { urlencoded } from 'express';
 const app = express();
-const mongoose = require('mongoose');
-const methodOverride = require('method-override');
-const morgan = require('morgan');
-const session = require('express-session');
+import mongoose from 'mongoose';
+import methodOverride from 'method-override';
+import morgan from 'morgan';
+import session from 'express-session';
 
-const authController = require('./controllers/auth.js');
+import authController from './controllers/auth.js';
 
 const port = process.env.PORT ? process.env.PORT : '3000';
 
@@ -17,7 +17,8 @@ mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 });
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.static('public')); // CSS file
+app.use(urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 // app.use(morgan('dev'));
 app.use(
