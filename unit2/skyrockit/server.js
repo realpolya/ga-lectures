@@ -11,6 +11,7 @@ import { isSignedIn } from "./middleware/is-signed-in.js";
 import { userToView } from './middleware/user-view.js';
 
 import authController from './controllers/auth.js';
+import appController from './controllers/applications.js';
 
 const port = process.env.PORT ? process.env.PORT : '3000';
 
@@ -40,7 +41,12 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', authController);
+
+// make sure the person is signed in
 app.use(isSignedIn);
+
+// routes for application only for signed in user
+app.use('/users/:userId/applications', appController);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
