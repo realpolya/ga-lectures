@@ -23,6 +23,7 @@ router.get('/new', (req, res) => {
     res.render('applications/new.ejs');
 });
 
+// create new applications
 router.post('/', async (req, res) => {
     
     try {
@@ -67,6 +68,33 @@ router.get("/:appId", async (req, res) => {
 
     }
     // res.send(`This is the id: ${req.params.appId}`)
+})
+
+// route for delete page
+router.delete(("/:appId"), async (req, res) => {
+    
+    try {
+        // look up the user 
+        const user = await User.findById(req.session.user._id);
+
+        // look up the application and delete
+        const deletedApp = user.applications.id(req.params.appId);
+        await user.applications.id(req.params.appId).deleteOne();
+        console.log(deletedApp);
+
+        // save the object in mongodb
+        await user.save();
+
+        // render the show view
+        res.render('applications/deleted.ejs', { deletedApp });
+
+    } catch(err) {
+        
+        console.log(err);
+        res.redirect('/');
+
+    }
+
 })
 
 // page for updating the app
