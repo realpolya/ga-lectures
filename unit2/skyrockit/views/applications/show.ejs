@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title><%= application.title %> App</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1><%= application.title %> App</h1>
+    <div id="app-table">
+        <table>
+            <tr>
+                <td class="td-head">Title</td>
+                <td><%= application.title %></td>
+            </tr>
+            <tr>
+                <td class="td-head">Company</td>
+                <td><%= application.company %></td>
+            </tr>
+            <tr>
+                <td class="td-head">Notes</td>
+                <td><%= application.notes %></td>
+            </tr>
+            <tr>
+                <td class="td-head">Link</td>
+                <td><%= application.postingLink %></td>
+            </tr>
+            <tr>
+                <td class="td-head">Status</td>
+                <td><%= application.status %></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="buttons">
+        <form action="/users/<%= user._id %>/applications/<%= application._id %>/edit" method="GET">
+            <button type="submit">Edit <%= application.title %> app</button>
+        </form>
+        <form action="/users/<%= user._id %>/applications/<%= application._id %>" method="GET">
+            <button type="submit">Delete <%= application.title %> app</button>
+        </form>
+    </div>
+</body>
+</html>

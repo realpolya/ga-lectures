@@ -12,16 +12,16 @@
     <div id="app-table">
         <table>
             <tr>
-                <td class="td-head">Company</td>
                 <td class="td-head">Title</td>
+                <td class="td-head">Company</td>
                 <td class="td-head">Notes</td>
                 <td class="td-head">Link</td>
                 <td class="td-head">Status</td>
             </tr>
             <% applications.forEach((application) => { %>
                 <tr>
+                    <td><a href="/users/<%= user._id %>/applications/<%= application._id %>"><%= application.title %></a></td>
                     <td><%= application.company %></td>
-                    <td><%= application.title %></td>
                     <td><%= application.notes %></td>
                     <td><%= application.postingLink %></td>
                     <td><%= application.status %></td>

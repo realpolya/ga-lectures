@@ -1,16 +1,21 @@
 body {
     /* background-color: midnightblue; */
     background: rgb(63,94,251);
-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-    margin: 5rem;
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    margin: 2rem;
     color: pink;
     font-size: 1.1rem;
+    width: 100%;
 }
 
 div {
     margin: 2rem;
     display: flex;
     flex-direction: column;
+}
+
+form {
+    width: 80%;
 }
 
 label {
@@ -69,6 +74,10 @@ td {
 }
 
 .td-head {
-    background-color: lightskyblue;
+    background-color: rgba(135, 206, 250, 0.611);
     color: midnightblue;
+}
+
+#app-table {
+    width: 80%;
 }

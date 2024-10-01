@@ -4,7 +4,7 @@ const router = express.Router();
 import User from '../models/user.js';
 
 router.get('/', async (req, res) => {
-    // res.send('Hello applications index route')
+
     console.log(req.locals)
     try {
         //current user
@@ -12,7 +12,6 @@ router.get('/', async (req, res) => {
         // array of objects
         const applications = user.applications; // or Array.from?
         
-
         res.render('applications/index.ejs', { applications }) // how to get the user object
 
     } catch (err) {
@@ -47,5 +46,49 @@ router.post('/', async (req, res) => {
     }
 
 })
+
+// individual page for each application
+router.get("/:appId", async (req, res) => {
+    
+    try {
+        // look up the user 
+        const user = await User.findById(req.session.user._id);
+
+        // look up the application
+        const application = user.applications.id(req.params.appId);
+
+        // render the show view
+        res.render('applications/show.ejs', { application });
+
+    } catch(err) {
+        
+        console.log(err);
+        res.redirect('/');
+
+    }
+    // res.send(`This is the id: ${req.params.appId}`)
+})
+
+// page for updating the app
+router.get("/:appId/edit", async (req, res) => {
+    
+    try {
+        // look up the user 
+        const user = await User.findById(req.session.user._id);
+
+        // look up the application
+        const application = user.applications.id(req.params.appId);
+
+        // render the show view
+        res.render('applications/edit.ejs', { application });
+
+    } catch(err) {
+        
+        console.log(err);
+        res.redirect('/');
+
+    }
+
+});
 
 export default router;
