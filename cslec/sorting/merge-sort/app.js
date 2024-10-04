@@ -1,3 +1,9 @@
+// merge is helper function that compares 2 sorted arrays
+
+// colors for terminal
+const red = '\x1b[31m';
+const reset = '\x1b[0m';
+const green = '\x1b[32m';
 
 const merge = (arr1, arr2) => {
 
@@ -32,8 +38,23 @@ const merge = (arr1, arr2) => {
 
 };
 
-console.log(merge([5, 6, 13], [2, 7, 8]))
+let step = 1;
 
-// const mergeSort = arr => {
+const mergeSort = arr => {
+    
+    if (arr.length <= 1) return arr;
 
-// };
+    let mid = Math.floor(arr.length / 2);
+
+    let left = mergeSort(arr.slice(0, mid));
+    let right = mergeSort(arr.slice(mid));
+
+    console.log(`Step ${step}: Left is ${green}${left}${reset}, right is ${red}${right}${reset}`);
+
+    step++;
+
+    return merge(left, right);
+
+};
+
+console.log(mergeSort([5, 1, 352, 69, 102, 77, 15]));
