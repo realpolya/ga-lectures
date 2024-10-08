@@ -1,3 +1,5 @@
+let step = 1;
+
 const quickSort = arr => {
     // base case
     if (arr.length <= 1) return arr;
@@ -7,6 +9,10 @@ const quickSort = arr => {
 
     const left = arr.filter(x => x < pivot);
     const right = arr.filter(x => x >= pivot);
+
+    console.log("Step ", step, ": Left is ", left, ". Right is ", right, ". Pivot is ", pivot);
+
+    step++;
 
     return [...quickSort(left), pivot, ...quickSort(right)];
 }
