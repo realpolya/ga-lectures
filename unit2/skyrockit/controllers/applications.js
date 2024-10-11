@@ -74,6 +74,7 @@ router.get("/:appId", async (req, res) => {
 router.delete(("/:appId"), async (req, res) => {
     
     try {
+        
         // look up the user 
         const user = await User.findById(req.session.user._id);
 
