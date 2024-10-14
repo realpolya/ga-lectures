@@ -8,6 +8,11 @@ body {
   width: 100%;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+}
+
 #root {
   height: 100%;
   width: 100%;
@@ -15,4 +20,22 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.first {
+  background-color: rgb(80, 125, 13);
+}
+
+.second {
+  background-color: rgb(163, 105, 115);
+}
+
+.first, .second {
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+button {
+  margin: 1rem 0;
 }
