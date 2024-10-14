@@ -38,3 +38,33 @@ div {
   border-color: #34495e; /* slightly darker border for depth */
   font-family: 'Arial', sans-serif;
 }
+
+.pink {
+  background-color: pink; /* dark background */
+  color: magenta; /* light text for contrast */
+  border-color: #34495e; /* slightly darker border for depth */
+  font-family: 'Arial', sans-serif;
+}
+
+.neon {
+  background-color: #0f0f0f; /* Dark background */
+  color: #39ff14; /* Bright neon green text */
+  text-shadow: 0 0 5px #39ff14; /* Glowing text effect */
+}
+
+#buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#buttons-click {
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+}
+
+button {
+  margin: 1rem;
+}
