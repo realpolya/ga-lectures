@@ -6,7 +6,6 @@ function Todos() {
     
     const [todos, setTodos] = useState([]);
     const addTodo = newTodo => {
-        console.log(newTodo);
         setTodos([...todos, newTodo]);
     }
 
