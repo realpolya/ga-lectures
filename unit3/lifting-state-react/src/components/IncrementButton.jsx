@@ -1,7 +1,7 @@
 function IncrementButton(props) {
     console.log(props);
     return (
-    <button>
+    <button onClick={props.addOne}>
         Increment
     </button>
   )
