@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import './SearchBar.css';
 
-function SearchBar() {
+function SearchBar({ fetchData }) {
     
+    /* states */
     const [city, setCity] = useState('');
 
     const handleCity = e => setCity(e.target.value);
