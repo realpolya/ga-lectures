@@ -16,5 +16,7 @@ const show = async (city) => {
     }
 }
 
-show('New York');
-show('Los Angeles');
+// show('New York');
+// show('Los Angeles');
+
+export { show };
