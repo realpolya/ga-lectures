@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import * as weather from './services/weather.js'
 import SearchBar from './components/SearchBar.jsx';
+import WeatherDetails from './components/WeatherDetails.jsx';
 import './App.css'
 
 function App() {
@@ -9,10 +10,10 @@ function App() {
   const [weatherData, setWeatherData] = useState({});
 
   /* functions */
-  const fetchData = async () => {
+  const fetchData = async (city) => {
 
     // fetch data
-    const data = await weather.show('New York');
+    const data = await weather.show(city);
 
     // sort data
     const sortedData = {
@@ -20,6 +21,8 @@ function App() {
       temperature: data.current.temp_f,
       condition: data.current.condition.text,
     }
+
+    console.log(sortedData);
 
     setWeatherData(sortedData);
 
@@ -29,6 +32,7 @@ function App() {
     <>
       <h1>Weather API</h1>
       < SearchBar fetchData={fetchData} />
+      < WeatherDetails />
     </>
   )
 

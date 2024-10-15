@@ -9,7 +9,15 @@ function SearchBar({ fetchData }) {
     const handleCity = e => setCity(e.target.value);
 
     const handleSubmit = e => {
+        // prevent reloads
         e.preventDefault();
+
+        console.log(city);
+
+        // send the API call
+        fetchData(city);
+
+        // reset city
         setCity('');
     }
   
