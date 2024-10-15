@@ -15,3 +15,6 @@ const show = async (city) => {
 
     }
 }
+
+show('New York');
+show('Los Angeles');
