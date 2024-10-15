@@ -1,0 +1,11 @@
+.weather-search {
+    width: 100%;
+    background-color: greenyellow;
+    color: black;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+label, input, button {
+    margin: .5rem;
+}

@@ -13,6 +13,7 @@ function App() {
     <>
       <h1>Weather API</h1>
       <button onClick={fetchData}>Fetch weather data</button>
+      < SearchBar />
     </>
   )
 
