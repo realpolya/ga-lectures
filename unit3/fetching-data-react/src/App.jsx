@@ -26,8 +26,6 @@ function App() {
             condition: data.current.condition.text,
           }
 
-          console.log(sortedData);
-
           setWeatherData(sortedData);
 
       }
@@ -49,8 +47,6 @@ function App() {
       temperature: data.current.temp_f,
       condition: data.current.condition.text,
     }
-
-    console.log(sortedData);
 
     setWeatherData(sortedData);
 
