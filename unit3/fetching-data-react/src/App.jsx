@@ -32,7 +32,7 @@ function App() {
     <>
       <h1>Weather API</h1>
       < SearchBar fetchData={fetchData} />
-      < WeatherDetails />
+      < WeatherDetails weatherData={weatherData}/>
     </>
   )
 
