@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import * as weather from './services/weather.js'
+import SearchBar from './components/SearchBar.jsx';
 import './App.css'
 
 function App() {
