@@ -1,0 +1,11 @@
+.todos-list {
+    padding: 1rem;
+    background-color: thistle;
+    color: black;
+    text-align: center;
+    border-radius: 1rem;
+}
+
+ul {
+    list-style-type: none;
+}
