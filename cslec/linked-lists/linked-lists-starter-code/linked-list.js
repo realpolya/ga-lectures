@@ -27,6 +27,7 @@ class LinkedList {
         if (this.head) {
 
             let walker = this.head;
+            console.log('head is', typeof(this.head));
             while (walker.next) {
                 walker = walker.next;
             }
@@ -37,7 +38,34 @@ class LinkedList {
         return this.head = node;
         
     }
+
+    prependNode(data) {
+        
+        const node = new Node(data);
+
+        if (this.head) {
+            
+            let oldHead = this.head;
+            node.next = oldHead;
+            return this.head = node;
+            
+        }
+
+        return this.head = node;
+
+    }
 }
+
+const songOne = new Node('Firefly');
+console.log(typeof(LinkedList))
+
+// initialize linked list
+const newList = new LinkedList();
+
+newList.appendNode(songOne);
+const songTwo = new Node('SongTwo');
+newList.appendNode(songTwo);
+console.log(newList);
 
 module.exports = {
     Node,
