@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const { Node, LinkedList } = require('../linked-list');
+const { Node, LinkedList } = require('../linked-list.js');
 
 describe('Node', ()=>{
     it('should start with a given data property', ()=>{
