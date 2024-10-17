@@ -1,8 +1,8 @@
 .btn {
-    background-color: magenta;
+    background-color: rgb(111, 11, 111);
     border-radius: 1rem;
     color: white;
     font-size: 2rem;
-    padding: 3rem 1rem;
-    width: 15rem;
+    padding: 15px 1rem;
+    width: 300px;
 }

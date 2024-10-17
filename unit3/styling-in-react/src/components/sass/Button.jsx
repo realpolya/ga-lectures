@@ -1,6 +1,8 @@
+import './button.sass'
+
 function Button({ buttonText }) {
   return (
-    <button>{buttonText}</button>
+    <button className="sassy-button">{buttonText}</button>
   )
 }
 

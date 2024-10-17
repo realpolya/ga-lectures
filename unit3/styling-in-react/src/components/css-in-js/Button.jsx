@@ -18,6 +18,7 @@ function Button({ buttonText }) {
   return (
     <button className={classes.btn}>{buttonText}</button>
   )
+  
 }
 
 export default Button
