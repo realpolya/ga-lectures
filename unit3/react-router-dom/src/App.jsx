@@ -12,7 +12,9 @@ const App = () => {
       <h1>Pokemons</h1>
       < NavBar />
       <Routes>
-        
+
+        <Route path='/'element={<h1>Home Page</h1>}/>
+
         <Route path="/pokemon" 
               element={< PokeList pokemons={pokemons} />} />
         
