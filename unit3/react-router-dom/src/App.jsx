@@ -1,13 +1,22 @@
-import { useState } from 'react'
-import './App.css'
-import { pokemons } from './data/pokemons.js'
+import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+
+import './App.css';
+import { pokemons } from './data/pokemons.js';
 import PokeList from './components/PokeList.jsx';
+import NavBar from './components/NavBar.jsx';
 
 const App = () => {
   return (
     <>
       <h1>Pokemons</h1>
-      < PokeList pokemons={pokemons} />
+      < NavBar />
+      <Routes>
+        
+        <Route path="/pokemon" 
+              element={< PokeList pokemons={pokemons} />} />
+        
+      </Routes>
     </>
   );
 };
