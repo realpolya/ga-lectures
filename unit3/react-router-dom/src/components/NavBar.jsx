@@ -9,7 +9,10 @@ function NavBar() {
                 <Link to='/'>Home</Link>
             </li>
             <li>
-                <Link to='/pokemon'>Pokemon</Link>
+                <Link to='/pokemon'>List of Pokes</Link>
+            </li>
+            <li>
+                <Link to='/new'>New Pokemon</Link>
             </li>
         </ul>
     </nav>

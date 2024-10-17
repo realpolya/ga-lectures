@@ -1,0 +1,17 @@
+.new-poke-main {
+    background-color: bisque;
+    padding: 2rem;
+    border-radius: 2rem;
+    color: black;
+}
+
+.new-poke-form {
+    background-color: magenta;
+    padding: 2rem;
+    border-radius: 1rem;
+    color: white;
+}
+
+.new-poke-form-div {
+    margin: 1rem 0;
+}
