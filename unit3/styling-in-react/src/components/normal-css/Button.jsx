@@ -1,6 +1,8 @@
+import './Button.css'
+
 function Button({ buttonText }) {
   return (
-    <button>{buttonText}</button>
+    <button className='btn'>{buttonText}</button>
   )
 }
 

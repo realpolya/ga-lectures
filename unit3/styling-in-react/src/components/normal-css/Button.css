@@ -1,0 +1,8 @@
+.btn {
+    background-color: magenta;
+    border-radius: 1rem;
+    color: white;
+    font-size: 2rem;
+    padding: 3rem 1rem;
+    width: 15rem;
+}

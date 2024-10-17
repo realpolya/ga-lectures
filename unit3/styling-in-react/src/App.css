@@ -9,6 +9,7 @@
 
 :root {
   background-color: #242424;
+  color: white;
 }
 
 .App {
@@ -16,5 +17,14 @@
   flex-direction: column;
   gap: 30px;
   margin: 100px auto;
+  width: 300px;
+}
+
+.default-button {
+  background-color: white;
+  border-radius: 8px;
+  color: blue;
+  font-size: 24pt;
+  padding: 15px 50px;
   width: 300px;
 }
