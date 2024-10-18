@@ -4,6 +4,8 @@ import { Route, Routes } from 'react-router-dom';
 import { getPets, getPet } from './services/petService.js';
 import './App.css';
 
+import PetList from './components/PetList.jsx';
+
 function App() {
 
   const [pets, setPets] = useState([]);
@@ -30,7 +32,12 @@ function App() {
   }, []) // dependency array
 
   return (
-    <div>App</div>
+    <>
+      <h1>Pets</h1>
+      <Routes>
+        <Route  path="/" element={<PetList pets={pets} />} />
+      </Routes>
+    </>
   )
 
 }
