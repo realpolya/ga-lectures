@@ -5,6 +5,7 @@ import { getPets, getPet } from './services/petService.js';
 import './App.css';
 
 import PetList from './components/PetList.jsx';
+import PetInfo from './components/PetInfo.jsx';
 
 function App() {
 
@@ -35,7 +36,8 @@ function App() {
     <>
       <h1>Pets</h1>
       <Routes>
-        <Route  path="/" element={<PetList pets={pets} />} />
+        <Route  path="/" element={< PetList pets={pets} />} />
+        <Route  path="/:id" element={< PetInfo />} />
       </Routes>
     </>
   )

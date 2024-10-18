@@ -23,8 +23,7 @@ const getPet = async (id) => {
 
     try {
 
-        const pet = await axios.get(BASE_URL, `/${id}`);
-        console.log(pet)
+        const pet = await axios.get(`${BASE_URL}/${id}`);
         return pet.data
 
     } catch(err) {

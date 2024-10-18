@@ -1,0 +1,10 @@
+#pet-info-div {
+    background-color: pink;
+    padding: 2rem;
+    border-radius: 1rem;
+    color: black;
+}
+
+span {
+    color: magenta;
+}
