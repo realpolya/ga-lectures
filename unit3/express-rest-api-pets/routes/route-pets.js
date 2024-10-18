@@ -11,6 +11,9 @@ const router = Router();
 
 router.get('/', controllers.displayPets);
 
+router.get('/:id', controllers.displayPet);
+
+
 router.post('/', controllers.createPet);
 
 /* --------------------------------Exports--------------------------------*/
