@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
 import chalk from 'chalk';
+import cors from 'cors';
 import logger from 'morgan';
 import db from './db/connection.js'; // db = mongoose.connection
 
@@ -24,9 +25,9 @@ db.on('connected', () => {
 
 /* --------------------------------Middleware--------------------------------*/
 
+app.use(cors());
 app.use(express.json());
 app.use(logger('dev'));
-app.use(express.static('public'));
 
 /* --------------------------------Routes--------------------------------*/
 
