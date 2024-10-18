@@ -13,8 +13,11 @@ router.get('/', controllers.displayPets);
 
 router.get('/:id', controllers.displayPet);
 
-
 router.post('/', controllers.createPet);
+
+router.delete('/:id', controllers.deletePet);
+
+router.put('/:id', controllers.updatePet);
 
 /* --------------------------------Exports--------------------------------*/
 
