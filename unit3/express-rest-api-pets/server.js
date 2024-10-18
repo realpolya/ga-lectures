@@ -6,6 +6,9 @@ import chalk from 'chalk';
 import logger from 'morgan';
 import db from './db/connection.js'; // db = mongoose.connection
 
+// routes
+import petRouter from './routes/route-pets.js';
+
 /* --------------------------------Express & Mongoose--------------------------------*/
 
 const app = express();
@@ -27,3 +30,4 @@ app.use(express.static('public'));
 
 /* --------------------------------Routes--------------------------------*/
 
+app.use('/pets', petRouter);
