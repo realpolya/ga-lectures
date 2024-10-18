@@ -25,7 +25,9 @@ db.on('connected', () => {
 
 /* --------------------------------Middleware--------------------------------*/
 
-app.use(cors());
+// Cross Origin Resouce Sharing – CORS
+app.use(cors()); // allow requests from anywhere
+// app.use(core({ origin: 'link'}))
 app.use(express.json());
 app.use(logger('dev'));
 
