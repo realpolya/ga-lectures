@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 function PetList({ pets }) {
 
     const petsLi = pets.map(pet => <li key={pet._id}>
-        <Link to={`/${pet._id}`}>Name: {pet.name}</Link>
+        <Link to={`/${pet._id}`}>Pet {pet.name}</Link>
     </li>);
 
     // if empty

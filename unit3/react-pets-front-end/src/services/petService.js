@@ -8,7 +8,6 @@ const getPets = async () => {
     try {
 
         const pets = await axios.get(BASE_URL);
-        console.log(pets)
         return pets.data
 
     } catch(err) {
@@ -34,6 +33,44 @@ const getPet = async (id) => {
 
 }
 
-getPets();
+const createPet = async (petData) => {
+    try {
 
-export { getPets, getPet }
+        const newPet = await axios.post(BASE_URL, petData);
+        return newPet.data;
+
+    } catch(err) {
+
+        console.log(err);
+
+    }
+}
+
+const deletePet = async (id) => {
+    try {
+
+        const deletedPet = await axios.delete(`${BASE_URL}/${id}`);
+        return deletedPet;
+
+    } catch(err) {
+
+        console.log(err);
+
+    }
+    
+}
+
+const updatePet = async (id, data) => {
+    try {
+
+        const updatedPet = await axios.put(`${BASE_URL}/${id}`, data);
+        return updatedPet;
+
+    } catch(err) {
+
+        console.log(err);
+
+    }
+}
+
+export { getPets, getPet, createPet, deletePet, updatePet }
