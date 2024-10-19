@@ -43,7 +43,7 @@ function App() {
       < NavBar />
       <Routes>
         <Route  path="/" element={< PetList pets={pets} />} />
-        <Route  path="/:id" element={< PetInfo />} />
+        <Route  path="/:id" element={< PetInfo setToggle={setToggle} toggle={toggle}/>} />
         <Route  path="/new" element={< PetForm edit={false} setToggle={setToggle} toggle={toggle} />} />
         <Route  path="/:id/edit" element={< PetForm edit={true} setToggle={setToggle} toggle={toggle} />} />
       </Routes>
