@@ -6,6 +6,7 @@ import db from './db/connection.js'; // db = mongoose.connection
 import chalk from 'chalk';
 
 import testJWTRouter from './controllers/test-jwt.js';
+import usersRouter from './controllers/users.js';
 
 /* --------------------------------Express & Mongoose--------------------------------*/
 
@@ -20,4 +21,9 @@ db.on('connected', () => {
     });
 });
 
+// middleware to parse json bodies
+app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
 app.use('/test-jwt', testJWTRouter);
+app.use('/users', usersRouter);
