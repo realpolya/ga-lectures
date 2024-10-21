@@ -4,6 +4,7 @@ dotenv.config();
 import express from 'express';
 import db from './db/connection.js'; // db = mongoose.connection
 import chalk from 'chalk';
+import cors from 'cors';
 
 import { verifyToken } from './middleware/verify-token.js';
 
@@ -25,7 +26,9 @@ db.on('connected', () => {
 });
 
 // middleware to parse json bodies
+app.use(cors());
 app.use(express.json());
+
 // app.use(express.urlencoded({ extended: true }));
 
 app.use('/test-jwt', testJWTRouter);
