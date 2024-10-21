@@ -10,4 +10,8 @@ export default mongoose.model('User', new mongoose.Schema({
         type: String,
         required: true,
     }
+}).set('toJSON', {
+    transform: (document, returned) => {
+        delete returned.hashedPassword;
+    }
 }))
