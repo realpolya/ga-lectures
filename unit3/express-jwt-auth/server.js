@@ -5,8 +5,11 @@ import express from 'express';
 import db from './db/connection.js'; // db = mongoose.connection
 import chalk from 'chalk';
 
+import { verifyToken } from './middleware/verify-token.js';
+
 import testJWTRouter from './controllers/test-jwt.js';
 import usersRouter from './controllers/users.js';
+import profileRouter from './controllers/profiles.js';
 
 /* --------------------------------Express & Mongoose--------------------------------*/
 
@@ -27,3 +30,5 @@ app.use(express.json());
 
 app.use('/test-jwt', testJWTRouter);
 app.use('/users', usersRouter);
+
+app.use('/profiles', profileRouter);

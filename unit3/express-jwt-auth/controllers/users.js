@@ -50,7 +50,7 @@ router.post('/sign-in', async (req, res) => {
 
         // jwt
         const token = getToken(user);
-        return res.status(200).json({ token });
+        return res.status(200).json({ user, token });
 
     } catch (err) {
         res.status(400).json({ error: err.message });
