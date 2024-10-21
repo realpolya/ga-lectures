@@ -26,4 +26,22 @@ router.post('/sign-up', async (req, res) => {
     }
 });
 
+router.post('/sign-in', async (req, res) => {
+
+    try {
+
+        let user = await User.findOne({ username: req.body.username });
+        let passwordInput = req.body.password;
+        if (!user || !bcrypt.compareSync(passwordInput, user.hashedPassword)) {
+            return res.status(400).json({ error: 'Invalid login' });
+        }
+
+        return res.status(200).json({ message: "You are signed in!"});
+
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+
+})
+
 export default router;
