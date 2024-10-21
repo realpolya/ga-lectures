@@ -11,23 +11,28 @@ const initial = {
 function SignupForm(props) {
 
     const redirect = useNavigate();
-    const [message, setMessage] = useState([]);
+    const [message, setMessage] = useState('');
     const [formData, setFormData] = useState(initial);
 
     const updateMessage = msg => setMessage(msg);
     const handleChange = e => setFormData({...formData, [e.target.name]: e.target.value });
     
     const handleSubmit = async (e) => {
+        
         e.preventDefault();
 
         try {
             const response = await signUp(formData);
             props.setUser(response.user);
+            updateMessage('');
             redirect('/');
         } catch (err) {
+            console.log("ERROR!")
+            console.log(err);
+            setFormData(initial);
             updateMessage(err.message);
         }
-        updateMessage('');
+        
     }
 
     const { username, password, passwordConf } = formData;
