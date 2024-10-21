@@ -5,6 +5,8 @@ import express from 'express';
 import db from './db/connection.js'; // db = mongoose.connection
 import chalk from 'chalk';
 
+import testJWTRouter from './controllers/test-jwt.js';
+
 /* --------------------------------Express & Mongoose--------------------------------*/
 
 const app = express();
@@ -17,3 +19,5 @@ db.on('connected', () => {
         console.log(chalk.green(`The express app is ready on port ${PORT}!`));
     });
 });
+
+app.use('/test-jwt', testJWTRouter);
