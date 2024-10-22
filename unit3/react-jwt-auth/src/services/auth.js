@@ -8,11 +8,16 @@ const signUp = async (formData) => {
 
         const response = await axios.post(`${BACK_END_URL}/users/sign-up`, formData);
         console.log(response)
+        
         if (response.data.error) {
             console.log(response.data.error)
             throw new Error(response.data.error);
         }
-        return response.data;
+
+        if (response.data.token) {
+            const user = JSON.parse(atob(response.data.token.split('.')[1]));
+            return user;
+        }
 
     } catch (err) {
         
@@ -29,17 +34,22 @@ const signIn = async (formData) => {
 
         const response = await axios.post(`${BACK_END_URL}/users/sign-in`, formData);
         console.log(response);
+
         if (response.data.error) {
             console.log(response.data.error)
             throw new Error(response.data.error);
         }
-        return response.data;
+
+        if (response.data.token) {
+            const user = JSON.parse(atob(response.data.token.split('.')[1]));
+            return user;
+        }
 
     } catch (err) {
 
         console.log(err.response.data.error);
         throw err;
-        
+
     }
 
 }

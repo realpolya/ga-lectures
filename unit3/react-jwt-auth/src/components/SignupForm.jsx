@@ -22,8 +22,9 @@ function SignupForm({ setUser }) {
         e.preventDefault();
 
         try {
-            const response = await signUp(formData);
-            setUser(response.user);
+            const user = await signUp(formData);
+            setUser(user);
+            console.log(user);
             updateMessage('');
             redirect('/');
         } catch (err) {

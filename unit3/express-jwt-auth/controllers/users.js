@@ -30,7 +30,7 @@ router.post('/sign-up', async (req, res) => {
 
         // implement jwt
         const token = getToken(user);
-        res.status(201).json({ user, token });
+        res.status(201).json({ token });
 
     } catch (err) {
         res.status(400).json({ error: err.message });
@@ -50,7 +50,7 @@ router.post('/sign-in', async (req, res) => {
 
         // jwt
         const token = getToken(user);
-        return res.status(200).json({ user, token });
+        return res.status(200).json({ token });
 
     } catch (err) {
         res.status(400).json({ error: err.message });

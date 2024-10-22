@@ -24,8 +24,9 @@ function SigninForm({ setUser }) {
 
         try {
 
-            const response = await signIn(formData);
-            setUser(response.user);
+            const user = await signIn(formData);
+            setUser(user);
+            console.log(user);
             updateMessage('');
             redirect('/');
 
