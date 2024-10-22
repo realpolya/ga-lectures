@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 
-function NavBar({ user }) {
+function NavBar({ user, handleSignOut }) {
     
     const userNav = <ul>
         <li>
             <Link to="/">Home</Link>
         </li>
         <li>
-            <Link to="/sign-out">Sign Out</Link>
+            <Link to="/" onClick={handleSignOut}>Sign Out</Link>
         </li>
     </ul>
 

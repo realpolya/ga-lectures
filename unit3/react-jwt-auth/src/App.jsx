@@ -6,14 +6,20 @@ import Dashboard from './components/Dashboard.jsx'
 import Landing from './components/Landing.jsx'
 import SignupForm from './components/SignupForm.jsx';
 import SigninForm from './components/SigninForm.jsx';
+import { getUser, signOut } from './services/auth.js';
 
 function App() {
 
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(getUser());
+
+  const handleSignOut = () => {
+    signOut();
+    setUser(null);
+  }
 
   return (
     <>
-      < NavBar user={user} />
+      < NavBar user={user} handleSignOut={handleSignOut} />
       <h1>JWT Auth</h1>
       <Routes>
         { user ? (< Route path="/" element={<Dashboard user={user} />} />) : (< Route path="/" element={<Landing />} />)}

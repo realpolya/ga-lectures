@@ -8,13 +8,14 @@ const signUp = async (formData) => {
 
         const response = await axios.post(`${BACK_END_URL}/users/sign-up`, formData);
         console.log(response)
-        
+
         if (response.data.error) {
             console.log(response.data.error)
             throw new Error(response.data.error);
         }
 
         if (response.data.token) {
+            localStorage.setItem('token', response.data.token);
             const user = JSON.parse(atob(response.data.token.split('.')[1]));
             return user;
         }
@@ -41,6 +42,7 @@ const signIn = async (formData) => {
         }
 
         if (response.data.token) {
+            localStorage.setItem('token', response.data.token);
             const user = JSON.parse(atob(response.data.token.split('.')[1]));
             return user;
         }
@@ -54,4 +56,20 @@ const signIn = async (formData) => {
 
 }
 
-export { signUp, signIn }
+const getUser = () => {
+
+    const token = localStorage.getItem('token');
+    if (!token) return null;
+
+    const user = JSON.parse(atob(token.split('.')[1]));
+    return user;
+
+}
+
+const signOut = () => {
+
+    localStorage.removeItem('token');
+
+}
+
+export { signUp, signIn, getUser, signOut }
