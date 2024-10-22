@@ -1,7 +1,7 @@
 
-function Dashboard() {
+function Dashboard({ user }) {
   return (
-    <div>Dashboard</div>
+    <div>Welcome {user.username}!!</div>
   )
 }
 

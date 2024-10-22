@@ -1,7 +1,7 @@
 
 function Landing() {
   return (
-    <div>Landing</div>
+    <div>Landing page for visitors</div>
   )
 }
 
