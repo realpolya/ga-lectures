@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { signIn } from '../services/auth.js';
+import { useContext } from 'react';
+import { AuthContext } from '../App.jsx';
 
 
 const initial = {
@@ -8,7 +10,9 @@ const initial = {
     password: ''
 }
 
-function SigninForm({ setUser }) {
+function SigninForm() {
+
+    const {setUser} = useContext(AuthContext);
 
     const [message, setMessage] = useState('');
     const [formData, setFormData] = useState(initial);

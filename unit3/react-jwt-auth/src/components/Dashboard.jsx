@@ -1,5 +1,10 @@
+import { useContext } from 'react';
+import { AuthContext } from '../App.jsx';
 
-function Dashboard({ user }) {
+function Dashboard() {
+
+  const {user} = useContext(AuthContext);
+  
   return (
     <div>Welcome {user.username}!!</div>
   )

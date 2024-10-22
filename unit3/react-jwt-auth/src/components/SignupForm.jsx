@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { signUp } from '../services/auth.js'
+import { useContext } from 'react';
+import { AuthContext } from '../App.jsx';
 
 const initial = {
     username: '',
@@ -8,7 +10,9 @@ const initial = {
     passwordConf: ''
 }
 
-function SignupForm({ setUser }) {
+function SignupForm() {
+
+    const {setUser} = useContext(AuthContext);
 
     const redirect = useNavigate();
     const [message, setMessage] = useState('');

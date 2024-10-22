@@ -1,6 +1,10 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../App.jsx';
 
-function NavBar({ user, handleSignOut }) {
+function NavBar({ handleSignOut }) {
+
+    const {user} = useContext(AuthContext);
     
     const userNav = <ul>
         <li>
