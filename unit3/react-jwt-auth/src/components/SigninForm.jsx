@@ -1,57 +1,64 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { signUp } from '../services/auth.js'
+import { signIn } from '../services/auth.js';
+
 
 const initial = {
     username: '',
-    password: '',
-    passwordConf: ''
+    password: ''
 }
 
-function SignupForm({ setUser }) {
+function SigninForm({ setUser }) {
 
-    const redirect = useNavigate();
     const [message, setMessage] = useState('');
     const [formData, setFormData] = useState(initial);
 
+    const redirect = useNavigate();
+
     const updateMessage = msg => setMessage(msg);
     const handleChange = e => setFormData(prev => ({...prev, [e.target.name]: e.target.value }));
-    
+
     const handleSubmit = async (e) => {
         
         e.preventDefault();
 
         try {
-            const response = await signUp(formData);
+
+            const response = await signIn(formData);
             setUser(response.user);
             updateMessage('');
             redirect('/');
+
         } catch (err) {
+
+            console.log("ERROR!")
+            console.log(err);
             setFormData(initial);
             updateMessage(err.response.data.error);
+
         }
         
     }
 
-    const { username, password, passwordConf } = formData;
+    const { username, password } = formData;
 
     const invalidForm = () => {
-        return !(username && password && password === passwordConf);
+        return !(username && password);
     }
 
     return (
         <main>
-
-            <h1>Sign Up</h1>
+            <h1>Log In</h1>
             <p>{message}</p>
-            <form onSubmit={handleSubmit}>
+            <form autoComplete="off" onSubmit={handleSubmit}>
 
                 <div>
                     <label htmlFor="username">Username:</label>
                     <input
                         type="text"
-                        id="name"
-                        value={username}
+                        autoComplete="off"
+                        id="username"
+                        value={formData.username}
                         name="username"
                         onChange={handleChange}
                     />
@@ -61,38 +68,24 @@ function SignupForm({ setUser }) {
                     <label htmlFor="password">Password:</label>
                     <input
                         type="password"
+                        autoComplete="off"
                         id="password"
-                        value={password}
+                        value={formData.password}
                         name="password"
                         onChange={handleChange}
                     />
                 </div>
 
                 <div>
-                    <label htmlFor="confirm">Confirm Password:</label>
-                    <input
-                        type="password"
-                        id="confirm"
-                        value={passwordConf}
-                        name="passwordConf"
-                        onChange={handleChange}
-                    />
-                </div>
-
-                <div>
-
-                    <button disabled={invalidForm()}>Sign Up</button>
-                    
+                    <button disabled={invalidForm()} type="submit">Log In</button>
                     <Link to="/">
                         <button>Cancel</button>
                     </Link>
-
                 </div>
-
+                
             </form>
-           
         </main>
     )
 }
 
-export default SignupForm
+export default SigninForm
