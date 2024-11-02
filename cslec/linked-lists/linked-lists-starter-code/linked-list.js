@@ -108,7 +108,6 @@ class LinkedList {
 
     }
 
-    // FIXME: 
     insertAt(index, data) {
 
         const node = new Node(data);
@@ -125,7 +124,7 @@ class LinkedList {
             let current = this.head;
 
             // cycle through the list with while loop
-            while (count <= index - 1) {
+            while (count < index - 1) {
 
                 current = current.next;
                 count++;
@@ -139,13 +138,6 @@ class LinkedList {
         }
 
         return this.head = node;
-
-
-        // keep count
-
-        // once count is 1 less than the index
-
-        // set that node's next to 
 
     }
 
@@ -165,10 +157,6 @@ console.log(newList);
 console.log('-----testing the pop now-----');
 
 newList.pop();
-
-
-
-
 
 
 module.exports = {
