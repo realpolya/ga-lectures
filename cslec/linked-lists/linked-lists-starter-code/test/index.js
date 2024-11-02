@@ -74,7 +74,7 @@ describe('Linked List', ()=>{
     })
     it('should be able to search for data', ()=>{
         let list = new LinkedList();
-        list.appendNode(1);
+        list.appendNode(1);d
         list.appendNode(2);
         list.appendNode(3);
         let foundNode = list.search(3);
