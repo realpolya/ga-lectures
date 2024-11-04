@@ -62,3 +62,25 @@ for thing in things:
         print("Nope. Burn it down, no more.")
         break
     print(f"There is a {thing} in the room.")
+
+
+# TERNARY:
+time_of_day = 9
+morning = True if time_of_day < 12 else False
+print(morning)
+
+# RANGE class
+for num in range(10):
+    print(num - 10)
+
+# including start and step
+for even in range(4, 12, 2):
+    print(even)
+
+nums = list(range(10))
+print(nums)
+
+# counting down
+for num in range(5, 0, -1):
+    print(num)
+    # prints the integers: 5, 4, 3, 2, 1
