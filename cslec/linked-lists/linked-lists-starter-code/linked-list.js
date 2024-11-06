@@ -141,6 +141,31 @@ class LinkedList {
 
     }
 
+    search(data) {
+
+        // cycle through nodes starting at head
+        let current = this.head
+        let found = false;
+
+        while (!found && current) {
+            console.log('current is', current.data, 'data is', data)
+            if (current.data === data) {
+                console.log('found is true')
+                found = true
+                return current.data;
+            } else {
+                current = current.next // next might be null
+            }
+        }
+
+        return false;
+
+    }
+
+    removeAt(index) {
+        console.log('ok')
+    }
+
 }
 
 // initialize linked list

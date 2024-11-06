@@ -74,11 +74,11 @@ describe('Linked List', ()=>{
     })
     it('should be able to search for data', ()=>{
         let list = new LinkedList();
-        list.appendNode(1);d
+        list.appendNode(1);
         list.appendNode(2);
         list.appendNode(3);
         let foundNode = list.search(3);
-        expect(foundNode).to.equal(2);
+        expect(foundNode).to.equal(3); // changed 2 for 3 (a typo?)
         let unFoundNode = list.search(42);
         expect(unFoundNode).to.equal(false);
     });
