@@ -50,3 +50,39 @@ things_location = {
 
 for key, value in things_location.items():
     print(f"My {key} - {value}")
+
+# lists – sequence type in python
+colors = ['red', 'indigo', 'thistle', 'pink']
+colors[-3] = 'yellow'
+print(colors[-3]) # negative indexing is allowed
+
+# list methods
+colors.extend(['black', 'white'])
+colors.insert(3, 'purple')
+colors.pop(6)
+colors.remove('black')
+print(colors)
+
+for color in colors:
+    print(color)
+
+for index, color in enumerate(colors):
+    print(index, color)
+
+colors.clear()
+print(colors)
+
+# tuple
+hello_tuple = ('Hello', ) # comma creates a tuple
+print(type(hello_tuple))
+
+colors_tuple = ("red", "yellow", "green")
+r, y, g = colors_tuple #unpacking
+print(r)
+print(colors_tuple[1])
+red_index = colors_tuple.index('red')
+print(red_index)
+
+for index, color in enumerate(colors_tuple):
+    print(index, color)
+
