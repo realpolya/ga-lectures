@@ -40,6 +40,7 @@ class LinkedList {
     return node
 
   }
+
   delete(key){
 
     if (!this.head) return false;
@@ -54,8 +55,9 @@ class LinkedList {
     while (current.next) {
 
       if (current.next.key === key) {
+        let deleted = current.next
         current.next = current.next.next
-        return current.next
+        return deleted
       }
 
       current = current.next
@@ -122,13 +124,11 @@ class HashTable {
   }
 
   delete(key) {
-    // lookup the key (i.e. hash it to get an index)
+    
     let index = this.hash(key)
 
-    // if the key wasn't found return -1
     if (!this.table[index]) return -1
 
-    // if the key is, in fact, in the linked list, delete that Node and return it
     let searched = this.table[index].search(key)
 
     if (!searched) return -1
@@ -138,10 +138,15 @@ class HashTable {
   }
 
   search(key) {
-    // hash key to get index
-    // search the linked list at the index
-    // if the key is found, return the Node
-    // if not, return -1
+
+    let index = this.hash(key)
+
+    if (!this.table[index]) return -1
+
+    let searched = this.table[index].search(key)
+    if (!searched) return -1
+    return searched
+
   }
 
 }
