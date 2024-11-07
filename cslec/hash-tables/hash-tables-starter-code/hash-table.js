@@ -1,3 +1,4 @@
+/* -------------NODE---------------*/
 class Node {
   constructor(key, value) {
     this.data = [key, value];
@@ -13,7 +14,7 @@ class Node {
   }
 }
 
-// note: this is a simpler LinkedList class than in the Linked List lesson
+/* -------------LINKED LIST---------------*/
 class LinkedList {
 
   constructor(){
@@ -46,8 +47,8 @@ class LinkedList {
     let current = this.head
 
     if (current.key === key) {
-        this.head = walker.next;
-        return walker
+        this.head = current.next;
+        return current
     }
 
     while (current.next) {
@@ -80,6 +81,7 @@ class LinkedList {
   }  
 }
 
+/* -------------HASH TABLE---------------*/
 class HashTable {
   constructor(size) {
     this.table = new Array(size).fill(null);
@@ -92,25 +94,47 @@ class HashTable {
   }
 
   insert(key, value) {
-    // hash the key to get an integer index
+    
+    let index = this.hash(key)
 
-    // if there's no linked list at that index in the table 
-      // create one and add it
-      // and insert this key value pair into the new Linked list
+    // if there's no linked list at that index in the table
+    if (!this.table[index]) {
+
+      let newList = new LinkedList()
+      this.table[index] = newList
+
+      newList.add(key, value)
+      return true
+
+    }
 
     // if there's a linked list at that index
-      // if a node already exists with the key, update it the data in that node to store the new value
-    
-    // otherwise
-      // add a new node with the given value to the end of the linked list
+    let searched = this.table[index].search(key)
 
-    // for the convenience of the user, you might wish to return the node, or you can just return true
+    if (!searched) {
+      this.table[index].add(key, value)
+      return true
+    }
+
+    searched.data = [key, value]
+    return true
+    
   }
 
   delete(key) {
     // lookup the key (i.e. hash it to get an index)
-    // if the key is, in fact, in the linked list, delete that Node and return it
+    let index = this.hash(key)
+
     // if the key wasn't found return -1
+    if (!this.table[index]) return -1
+
+    // if the key is, in fact, in the linked list, delete that Node and return it
+    let searched = this.table[index].search(key)
+
+    if (!searched) return -1
+    let deleted = this.table[index].delete(key)
+    return deleted
+
   }
 
   search(key) {
