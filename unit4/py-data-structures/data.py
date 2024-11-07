@@ -35,3 +35,18 @@ print(student)
 # length / number of items in dictionary
 print(len(student)) # dictionary
 print(len('student')) # number of characters in string 'student'
+
+# looping
+for key, val in student.items():
+    print(f"{key} is {val}")
+
+favorite_item = 'the row bag'
+
+things_location = {
+    'phone': 'on a table',
+    'running shoes': 'at home',
+    favorite_item: 'in a dustbag'
+}
+
+for key, value in things_location.items():
+    print(f"My {key} - {value}")
