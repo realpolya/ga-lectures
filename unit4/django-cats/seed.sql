@@ -1,0 +1,5 @@
+CREATE DATABASE cats;
+
+CREATE USER cat_admin WITH PASSWORD 'password';
+
+GRANT ALL PRIVILEGES ON DATABASE cats TO cat_admin;
