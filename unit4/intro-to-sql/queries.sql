@@ -102,10 +102,15 @@ FROM bands
 JOIN musicians ON bands.id = musicians.band_id;
 
 -- types of JOIN
-INNER JOIN -- default
+INNER JOIN -- default (only the overlap)
 LEFT JOIN -- all rows from left table
 RIGHT JOIN -- all rows from right table
 FULL JOIN -- match in at least one of the tables
 
+-- UNION
+-- create a new table
+
 -- DELETE
+DELETE FROM bands WHERE name = 'ACDC';
+DELETE FROM bands; -- deletes everything te
 
