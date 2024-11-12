@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 # Tuple of Tuples (1 - value, 2 - human readable version)
 MEALS = (
@@ -29,10 +30,16 @@ class Cat(models.Model):
 
     def __str__(self):
         return f"{self.get_mood_display()} cat {self.name}"
+    
+    def fed_for_today(self):
+        return self.feeding_set.filter(date=datetime.date.today()).count() >= len(MEALS)
 
 
 class Feeding(models.Model):
-    date = models.DateField('Feeding Date')
+    date = models.DateField(
+        'Feeding Date',
+        default=datetime.date.today
+    )
     meal = models.CharField(
         max_length=1,
         choices=MEALS,
@@ -43,3 +50,6 @@ class Feeding(models.Model):
     def __str__(self):
         # get_blank_display() for Field with choices
         return f"{self.cat} consumed {self.get_meal_display()} on {self.date}"
+
+    class Meta:
+        ordering = ['-date']
