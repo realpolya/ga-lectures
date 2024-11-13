@@ -53,3 +53,10 @@ class Feeding(models.Model):
 
     class Meta:
         ordering = ['-date']
+
+class Toy(models.Model):
+    name = models.CharField(max_length=100)
+    color = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f'{self.color} {self.name}'
