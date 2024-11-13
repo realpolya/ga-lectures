@@ -16,6 +16,16 @@ MOODS = (
     ('P', 'Peaceful')
 )
 
+'''Toy model'''
+class Toy(models.Model):
+    name = models.CharField(max_length=100)
+    color = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f'{self.color} {self.name}'
+
+
+'''Cat model'''
 class Cat(models.Model):
     name = models.CharField(max_length=100)
     breed = models.CharField(max_length=100)
@@ -27,6 +37,7 @@ class Cat(models.Model):
         choices=MOODS,
         default=MOODS[1][0]
     )
+    toys = models.ManyToManyField(Toy)
 
     def __str__(self):
         return f"{self.get_mood_display()} cat {self.name}"
@@ -35,6 +46,7 @@ class Cat(models.Model):
         return self.feeding_set.filter(date=datetime.date.today()).count() >= len(MEALS)
 
 
+'''Feeding model'''
 class Feeding(models.Model):
     date = models.DateField(
         'Feeding Date',
@@ -54,9 +66,4 @@ class Feeding(models.Model):
     class Meta:
         ordering = ['-date']
 
-class Toy(models.Model):
-    name = models.CharField(max_length=100)
-    color = models.CharField(max_length=100)
-
-    def __str__(self):
-        return f'{self.color} {self.name}'
+__all__ = ["Cat", "Feeding", "Toy"]
