@@ -9,5 +9,8 @@ urlpatterns = [
     path('cats/<int:cat_id>/feed/<int:id>/', FeedDetail.as_view(), name='feed-detail'),
     path('toys/', ToyList.as_view(), name='toy-list'),
     path('toys/<int:id>/', ToyDetail.as_view(), name='toy-detail'),
-    path('cats/<int:cat_id>/toy/<int:toy_id>/', ModifyToyForCat.as_view(), name='modify-toy-for-cat')
+    path('cats/<int:cat_id>/toy/<int:toy_id>/', ModifyToyForCat.as_view(), name='modify-toy-for-cat'),
+    path('users/register/', CreateUserView.as_view(), name='register'),
+    path('users/login/', LoginView.as_view(), name='login'),
+    path('users/token/refresh/', VerifyUserView.as_view(), name='token_refresh'),
 ]

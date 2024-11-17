@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 import datetime
 
 # Tuple of Tuples (1 - value, 2 - human readable version)
@@ -38,6 +39,7 @@ class Cat(models.Model):
         default=MOODS[1][0]
     )
     toys = models.ManyToManyField(Toy)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.get_mood_display()} cat {self.name}"
